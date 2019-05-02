@@ -8,6 +8,9 @@ import android.widget.TextView;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
+/**
+ * The application's main activity.
+ */
 public class MainActivity extends AppCompatActivity {
     /** Default logging tag for messages from the main activity. */
     private static final String TAG = "nyc-subway-tracker:Main";
@@ -15,6 +18,11 @@ public class MainActivity extends AppCompatActivity {
     /** Request queue for network requests. */
     private RequestQueue requestQueue;
 
+    /**
+     * Run when the main activity comes into view.
+     *
+     * @param savedInstanceState state saved on the last pause
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestQueue = Volley.newRequestQueue(this);
