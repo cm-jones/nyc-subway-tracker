@@ -2,6 +2,8 @@ package com.cmjones.subwaytracker;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -31,5 +33,16 @@ public class MainActivity extends AppCompatActivity {
 
         // Load the main layout
         setContentView(R.layout.activity_main);
+
+        /*
+         * Set up button handlers.
+         */
+        final Button makeRequest = findViewById(R.id.makeRequest);
+        makeRequest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "Make request button clicked");
+            }
+        });
     }
 }
