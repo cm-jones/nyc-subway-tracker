@@ -20,9 +20,6 @@ import com.android.volley.toolbox.Volley;
 import java.util.LinkedList;
 import java.util.List;
 
-import java.util.Map;
-import java.util.LinkedHashMap;
-
 /**
  * The application's main activity.
  */
@@ -71,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.trains);
 
         // Layout size does not change with content changes
-        recyclerView.setHasFixedSize(false);
+        recyclerView.setHasFixedSize(true);
 
         // Use linear layout manager
         layoutManager = new LinearLayoutManager(this);
