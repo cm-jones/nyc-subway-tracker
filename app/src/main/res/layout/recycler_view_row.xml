@@ -10,6 +10,8 @@
         android:id="@+id/trainInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:typeface="sans" />
+        android:typeface="sans"
+        android:drawableStart="@drawable/a_local"
+        android:drawableLeft="@drawable/a_local" />
 
 </LinearLayout>
