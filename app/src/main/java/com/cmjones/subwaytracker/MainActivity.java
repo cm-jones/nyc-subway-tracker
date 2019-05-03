@@ -2,6 +2,7 @@ package com.cmjones.subwaytracker;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
@@ -16,26 +17,27 @@ import android.widget.Toast;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * The application's main activity.
  */
 public class MainActivity extends AppCompatActivity {
     /** Default logging tag for messages from the main activity. */
-    private static final String TAG = "nyc-subway-tracker:Main";
+    private static final String TAG = "nyc-subway-tracker:main";
 
     /** Request queue for network requests. */
     private RequestQueue requestQueue;
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
-    private RecyclerView.LayoutManager layoutManager;
+    private LinearLayoutManager layoutManager;
 
     private Button makeRequest;
 
     /**
-     * Run when the main activity comes into view.
+     * Executes when the main activity loads.
      *
      * @param savedInstanceState state saved on the last pause
      */
@@ -59,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.trains);
 
         // Layout size does not change with content changes
         recyclerView.setHasFixedSize(true);
@@ -69,18 +71,22 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         // Data to populate the RecyclerView with
-        ArrayList<String> animalNames = new ArrayList<>();
-        animalNames.add("Horse");
-        animalNames.add("Cow");
-        animalNames.add("Camel");
-        animalNames.add("Sheep");
-        animalNames.add("Goat");
+        List<String> animalNames = new LinkedList<>();
+        animalNames.add("A");
+        animalNames.add("N");
+        animalNames.add("2");
+        animalNames.add("7");
+        animalNames.add("J");
 
         adapter = new MyAdapter(this, animalNames);
         recyclerView.setAdapter(adapter);
 
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
+                layoutManager.getOrientation());
+        recyclerView.addItemDecoration(dividerItemDecoration);
+
         // set up the RecyclerView
         // adapter.setClickListener(this);
-        recyclerView.setAdapter(adapter);
     }
+
 }
