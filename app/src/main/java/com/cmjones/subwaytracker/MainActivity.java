@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayoutManager layoutManager;
 
     private Button makeRequest;
+    private TextView currentStation;
 
     /**
      * Executes when the main activity loads.
@@ -58,8 +59,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "Make request button clicked");
+                currentStation.setText("Times Square-42nd Street");
             }
         });
+
+        currentStation = findViewById(R.id.currentStation);
 
         recyclerView = findViewById(R.id.trains);
 
@@ -71,14 +75,20 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         // Data to populate the RecyclerView with
-        List<String> animalNames = new LinkedList<>();
-        animalNames.add("A");
-        animalNames.add("N");
-        animalNames.add("2");
-        animalNames.add("7");
-        animalNames.add("J");
+        List<String> arrivals = new LinkedList<>();
+        arrivals.add("A");
+        arrivals.add("A");
+        arrivals.add("A");
+        arrivals.add("A");
+        arrivals.add("A");
+        arrivals.add("A");
+        arrivals.add("A");
+        arrivals.add("A");
+        arrivals.add("A");
+        arrivals.add("A");
+        arrivals.add("A");
 
-        adapter = new MyAdapter(this, animalNames);
+        adapter = new MyAdapter(this, arrivals);
         recyclerView.setAdapter(adapter);
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),

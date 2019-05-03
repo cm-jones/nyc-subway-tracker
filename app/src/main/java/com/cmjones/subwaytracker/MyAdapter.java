@@ -10,7 +10,6 @@ import android.widget.TextView;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
-
     private List<String> data;
     private LayoutInflater layoutInflater;
     private ItemClickListener itemClickListener;
@@ -47,7 +46,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
         ViewHolder(View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.train);
+            textView = itemView.findViewById(R.id.trainInfo);
             itemView.setOnClickListener(this);
         }
 
