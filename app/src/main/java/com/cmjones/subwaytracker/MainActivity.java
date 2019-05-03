@@ -76,17 +76,17 @@ public class MainActivity extends AppCompatActivity {
 
         // Data to populate the RecyclerView with
         List<String> arrivals = new LinkedList<>();
-        arrivals.add("A");
-        arrivals.add("A");
-        arrivals.add("A");
-        arrivals.add("A");
-        arrivals.add("A");
-        arrivals.add("A");
-        arrivals.add("A");
-        arrivals.add("A");
-        arrivals.add("A");
-        arrivals.add("A");
-        arrivals.add("A");
+        arrivals.add(getString(R.string.a_downtown));
+        arrivals.add(getString(R.string.a_downtown));
+        arrivals.add(getString(R.string.a_downtown));
+        arrivals.add(getString(R.string.a_downtown));
+        arrivals.add(getString(R.string.a_downtown));
+        arrivals.add(getString(R.string.a_downtown));
+        arrivals.add(getString(R.string.a_downtown));
+        arrivals.add(getString(R.string.a_downtown));
+        arrivals.add(getString(R.string.a_downtown));
+        arrivals.add(getString(R.string.a_downtown));
+        arrivals.add(getString(R.string.a_downtown));
 
         adapter = new MyAdapter(this, arrivals);
         recyclerView.setAdapter(adapter);
