@@ -2,15 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:padding="10sp"
-    android:layout_height="80sp"
+    android:layout_height="60sp"
     android:orientation="horizontal" >
 
     <ImageView
         android:id="@+id/bullet"
         android:layout_gravity="center"
         android:contentDescription="@string/rockaway"
-        android:layout_width="60sp"
-        android:layout_height="60sp"
+        android:layout_width="40sp"
+        android:layout_height="40sp"
         android:src="@drawable/a_circle" />
 
     <LinearLayout
@@ -24,14 +24,13 @@
         <TextView
             android:id="@+id/direction"
             android:text="@string/downtown"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/destination"
-            android:layout_marginTop="4sp"
             android:text="@string/rockaway"
             android:textSize="14sp"
             android:layout_width="wrap_content"
@@ -45,25 +44,25 @@
         android:layout_weight="1" />
 
     <LinearLayout
-        android:layout_width="60sp"
-        android:layout_marginRight="10sp"
+        android:layout_width="40sp"
         android:orientation="vertical"
         android:layout_gravity="center"
-        android:layout_marginEnd="10sp"
-        android:layout_height="60sp" >
+        android:layout_marginEnd="0sp"
+        android:layout_marginRight="0sp"
+        android:layout_height="40sp" >
 
         <TextView
             android:id="@+id/arrivalTime"
             android:layout_width="wrap_content"
-            android:layout_height="30sp"
+            android:layout_height="20sp"
             android:layout_gravity="center"
             android:gravity="bottom"
             android:text="6"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold"/>
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="30sp"
+            android:layout_height="20sp"
             android:layout_gravity="center"
             android:gravity="center"
             android:text="mins"

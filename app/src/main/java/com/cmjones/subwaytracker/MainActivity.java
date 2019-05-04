@@ -64,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         currentStation = findViewById(R.id.currentStation);
-
         recyclerView = findViewById(R.id.trains);
 
         // Layout size does not change with content changes
@@ -75,11 +74,11 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         // Data to populate the RecyclerView with
-        List<String> arrivals = new LinkedList<>();
-        arrivals.add("A");
-        arrivals.add("5");
-        arrivals.add("7");
-        arrivals.add("N");
+        List<Train> arrivals = new LinkedList<>();
+        arrivals.add(Train.A_BRONX);
+        arrivals.add(Train.A_BRONX);
+        arrivals.add(Train.A_BROOKLYN);
+        arrivals.add(Train.A_BRONX);
 
         adapter = new MyAdapter(this, arrivals);
         recyclerView.setAdapter(adapter);
@@ -92,4 +91,7 @@ public class MainActivity extends AppCompatActivity {
         // adapter.setClickListener(this);
     }
 
+    public void makeRequest() {
+
+    }
 }

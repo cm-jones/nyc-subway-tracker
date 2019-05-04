@@ -11,11 +11,11 @@ import android.widget.TextView;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
-    private List<String> data;
+    private List<Train> data;
     private LayoutInflater layoutInflater;
     private ItemClickListener itemClickListener;
 
-    MyAdapter(Context context, List<String> setData) {
+    MyAdapter(Context context, List<Train> setData) {
         layoutInflater = LayoutInflater.from(context);
         data = setData;
     }
@@ -30,27 +30,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        if (data.get(position).equals("A")) {
-            holder.direction.setText(R.string.downtown);
-            holder.destination.setText(R.string.rockaway);
-            holder.bullet.setImageResource(R.drawable.a_circle);
-            holder.arrivalTime.setText("2");
-        } else if (data.get(position).equals("5")) {
-            holder.direction.setText(R.string.uptown);
-            holder.destination.setText(R.string.inwood);
-            holder.bullet.setImageResource(R.drawable.five_circle);
-            holder.arrivalTime.setText("3");
-        } else if (data.get(position).equals("7")) {
-            holder.direction.setText(R.string.queens);
-            holder.destination.setText(R.string.flushing);
-            holder.bullet.setImageResource(R.drawable.seven_circle);
-            holder.arrivalTime.setText("7");
-        } else if (data.get(position).equals("N")) {
-            holder.direction.setText(R.string.brooklyn);
-            holder.destination.setText(R.string.coney);
-            holder.bullet.setImageResource(R.drawable.n_circle);
-            holder.arrivalTime.setText("12");
-        }
+        holder.direction.setText(data.get(position).getDirection());
+        holder.destination.setText(data.get(position).getDestination());
+
     }
 
     /**
@@ -89,7 +71,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
     // Convenience method for getting data at click position
-    String getItem(int position) {
+    Train getItem(int position) {
         return data.get(position);
     }
 
