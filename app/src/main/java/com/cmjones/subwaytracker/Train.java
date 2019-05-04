@@ -18,6 +18,7 @@ public class Train {
     /** Whether this train runs express. */
     private boolean isExpress;
 
+    /** The official MTA emblem. */
     private Drawable bullet;
 
     /** Brooklyn-bound Eighth Avenue Express to Far Rockaway. */
@@ -25,6 +26,9 @@ public class Train {
 
     /** Bronx-bound Eighth Avenue Express to Inwood-204th St. */
     public static final Train A_BRONX = new Train('A', "Bronx", "Inwood - 204th St");
+
+    /** Manhattan-bound Broadway Local to Whitehall St. */
+    public static final Train W_MANHATTAN = new Train('W', "Manhattan", "Whitehall St");
 
     /**
      * Creates a new train.
@@ -43,31 +47,18 @@ public class Train {
         return line;
     }
 
-    public void setLine(final char setLine) {
-        line = setLine;
-    }
 
     public String getDirection() {
         return destination;
     }
 
-    public void setDirection(final String setDirection) {
-        direction = setDirection;
-    }
 
     public String getDestination() {
         return destination;
     }
 
-    public void setDestination(final String setDestination) {
-        destination = setDestination;
-    }
 
     public boolean isExpress() {
         return isExpress;
-    }
-
-    public void setExpress(final boolean setExpress) {
-        isExpress = setExpress;
     }
 }
