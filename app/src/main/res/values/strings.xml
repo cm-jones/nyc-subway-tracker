@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">NYC Subway Tracker</string>
-    <string name="a_uptown"><font color='#2850ad'>A</font> Uptown to Inwood - 207 St</string>
-    <string name="a_downtown"><font color='#2850ad'>A</font> Downtown to Far Rockaway</string>
+    <string name="uptown">Uptown</string>
+    <string name="downtown">Downtown</string>
+    <string name="inwood">To Inwood - 204th St</string>
+    <string name="rockaway">To Far Rockaway</string>
+    <string name="flushing">To Flushing - Main St</string>
+    <string name="queens">Queens</string>
+    <string name="brooklyn">Brooklyn</string>
+    <string name="manhattan">Manhattan</string>
 </resources>

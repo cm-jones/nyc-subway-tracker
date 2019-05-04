@@ -1,15 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="10dp">
+    android:padding="10sp"
+    android:layout_height="80sp"
+    android:orientation="horizontal" >
 
-    <TextView
-        android:id="@+id/trainInfo"
+    <ImageView
+        android:id="@+id/bullet"
+        android:layout_gravity="center"
+        android:contentDescription="@string/rockaway"
+        android:layout_width="60sp"
+        android:layout_height="60sp"
+        android:src="@drawable/a_circle" />
+
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:typeface="sans" />
+        android:layout_height="wrap_content">
 
+        <TextView
+            android:id="@+id/direction"
+            android:text="@string/downtown"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/destination"
+            android:layout_marginTop="4sp"
+            android:text="@string/rockaway"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 </LinearLayout>
