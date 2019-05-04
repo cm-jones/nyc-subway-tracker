@@ -1,7 +1,6 @@
 package com.cmjones.subwaytracker;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,18 +34,30 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             holder.direction.setText(R.string.downtown);
             holder.destination.setText(R.string.rockaway);
             holder.bullet.setImageResource(R.drawable.a_circle);
+            holder.arrivalTime.setText("2");
         } else if (data.get(position).equals("5")) {
             holder.direction.setText(R.string.uptown);
             holder.destination.setText(R.string.inwood);
             holder.bullet.setImageResource(R.drawable.five_circle);
+            holder.arrivalTime.setText("3");
         } else if (data.get(position).equals("7")) {
             holder.direction.setText(R.string.queens);
             holder.destination.setText(R.string.flushing);
             holder.bullet.setImageResource(R.drawable.seven_circle);
+            holder.arrivalTime.setText("7");
+        } else if (data.get(position).equals("N")) {
+            holder.direction.setText(R.string.brooklyn);
+            holder.destination.setText(R.string.coney);
+            holder.bullet.setImageResource(R.drawable.n_circle);
+            holder.arrivalTime.setText("12");
         }
     }
 
-    // total number of rows
+    /**
+     * Get the total number of train objects.
+     *
+     * @return the number of trains
+     */
     @Override
     public int getItemCount() {
         return data.size();
@@ -55,15 +66,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        ImageView bullet;
         TextView direction;
         TextView destination;
-        ImageView bullet;
+        TextView arrivalTime;
 
         ViewHolder(View itemView) {
             super(itemView);
             direction = itemView.findViewById(R.id.direction);
             destination = itemView.findViewById(R.id.destination);
             bullet = itemView.findViewById(R.id.bullet);
+            arrivalTime = itemView.findViewById(R.id.arrivalTime);
             itemView.setOnClickListener(this);
         }
 

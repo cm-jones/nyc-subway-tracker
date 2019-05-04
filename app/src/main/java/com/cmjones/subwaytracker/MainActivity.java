@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         arrivals.add("A");
         arrivals.add("5");
         arrivals.add("7");
+        arrivals.add("N");
 
         adapter = new MyAdapter(this, arrivals);
         recyclerView.setAdapter(adapter);
