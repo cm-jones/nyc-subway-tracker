@@ -98,18 +98,18 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         Log.d(TAG, response);
                         arrivals.clear();
-                        arrivals.add(new Train(Line.A, "Brooklyn-bound", "To Far Rockaway", false));
-                        arrivals.add(new Train(Line.N, "Queens-bound", "To Steinway St", true));
-                        arrivals.add(new Train(Line.SEVEN, "Queens-bound", "To Flushing - Main " +
+                        arrivals.add(new Train(Line.A, "Brooklyn-Bound", "To Far Rockaway", false));
+                        arrivals.add(new Train(Line.N, "Queens-Bound", "To Steinway St", true));
+                        arrivals.add(new Train(Line.SEVEN, "Queens-Bound", "To Flushing - Main " +
                                 "St", false));
-                        arrivals.add(new Train(Line.A, "Manhattan-bound", "To Inwood - 204 St",
+                        arrivals.add(new Train(Line.A, "Manhattan-Bound", "To Inwood - 204 St",
                                 true));
-                        arrivals.add(new Train(Line.FIVE, "Manhattan-bound", "To City Hall",
+                        arrivals.add(new Train(Line.FIVE, "Manhattan-Bound", "To City Hall",
                                 false));
-                        arrivals.add(new Train(Line.SEVEN, "Queens-bound", "To Flushing - Main " +
+                        arrivals.add(new Train(Line.SEVEN, "Queens-Bound", "To Flushing - Main " +
                                 "St", false));
-                        arrivals.add(new Train(Line.A, "Brooklyn-bound", "To Far Rockaway", false));
-                        arrivals.add(new Train(Line.N, "Queens-bound", "To Steinway St", true));
+                        arrivals.add(new Train(Line.A, "Brooklyn-Bound", "To Far Rockaway", false));
+                        arrivals.add(new Train(Line.N, "Queens-Bound", "To Steinway St", true));
                         currentStation.setText("Success!");
                         adapter.notifyDataSetChanged();
                     }
