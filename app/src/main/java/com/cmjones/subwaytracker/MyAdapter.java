@@ -1,5 +1,7 @@
 package com.cmjones.subwaytracker;
 
+import com.cmjones.subwaytracker.lib.*;
+
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -30,9 +32,19 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.direction.setText(data.get(position).getDirection());
-        holder.destination.setText(data.get(position).getDestination());
-
+        Train train = data.get(position);
+        Line line = train.getLine();
+        holder.direction.setText(train.getDirection());
+        holder.destination.setText(train.getDestination());
+        if (line.equals(Line.A)) {
+            holder.bullet.setImageResource(R.drawable.a_circle);
+        } else if (line.equals(Line.N)) {
+            holder.bullet.setImageResource(R.drawable.n_circle);
+        } else if (line.equals(Line.FIVE)) {
+            holder.bullet.setImageResource(R.drawable.five_circle);
+        } else if (line.equals(Line.SEVEN)) {
+            holder.bullet.setImageResource(R.drawable.seven_circle);
+        }
     }
 
     /**

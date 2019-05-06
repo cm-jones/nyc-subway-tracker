@@ -1,20 +1,23 @@
 package com.cmjones.subwaytracker;
 
+import com.cmjones.subwaytracker.lib.*;
+
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Adapter;
-import android.widget.AdapterView;
-import android.widget.Toast;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import java.util.LinkedList;
@@ -24,10 +27,14 @@ import java.util.List;
  * The application's main activity.
  */
 public class MainActivity extends AppCompatActivity {
-    /** Default logging tag for messages from the main activity. */
+    /**
+     * Default logging tag for messages from the main activity.
+     */
     private static final String TAG = "nyc-subway-tracker:main";
 
-    /** Request queue for network requests. */
+    /**
+     * Request queue for network requests.
+     */
     private RequestQueue requestQueue;
 
     private RecyclerView recyclerView;
@@ -36,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
 
     private Button makeRequest;
     private TextView currentStation;
+
+    /** Arriving trains to populate the RecyclerView with. */
+    List<Train> arrivals = new LinkedList<>();
 
     /**
      * Executes when the main activity loads.
@@ -59,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "Make request button clicked");
-                currentStation.setText("Times Square-42nd Street");
+                makeRequest();
             }
         });
 
@@ -73,13 +83,6 @@ public class MainActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        // Data to populate the RecyclerView with
-        List<Train> arrivals = new LinkedList<>();
-        arrivals.add(Train.A_BRONX);
-        arrivals.add(Train.A_BRONX);
-        arrivals.add(Train.A_BROOKLYN);
-        arrivals.add(Train.A_BRONX);
-
         adapter = new MyAdapter(this, arrivals);
         recyclerView.setAdapter(adapter);
 
@@ -92,6 +95,37 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void makeRequest() {
-
+        String url = "http://datamine.mta.info/mta_esi.php?key=" + BuildConfig.API_KEY + "&feed_id=1";
+        // Request a string response from the provided URL.
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d(TAG, response);
+                        arrivals.clear();
+                        arrivals.add(new Train(Line.A, "Brooklyn-bound", "To Far Rockaway", false));
+                        arrivals.add(new Train(Line.N, "Queens-bound", "To Steinway St", true));
+                        arrivals.add(new Train(Line.SEVEN, "Queens-bound", "To Flushing - Main " +
+                                "St", false));
+                        arrivals.add(new Train(Line.A, "Manhattan-bound", "To Inwood - 204 St",
+                                true));
+                        arrivals.add(new Train(Line.FIVE, "Manhattan-bound", "To City Hall",
+                                false));
+                        arrivals.add(new Train(Line.SEVEN, "Queens-bound", "To Flushing - Main " +
+                                "St", false));
+                        arrivals.add(new Train(Line.A, "Brooklyn-bound", "To Far Rockaway", false));
+                        arrivals.add(new Train(Line.N, "Queens-bound", "To Steinway St", true));
+                        currentStation.setText("Success!");
+                        adapter.notifyDataSetChanged();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+                currentStation.setText("That didn't work!");
+                adapter.notifyDataSetChanged();
+            }
+        });
+        requestQueue.add(stringRequest);
     }
 }
