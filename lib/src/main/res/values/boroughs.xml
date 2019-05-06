@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string
-        name="manhattan" translatable="false">Manhattan</string>
+        name="manhattan"
+        >Manhattan</string>
     <string
-        name="brooklyn" translatable="false">Brooklyn</string>
+        name="brooklyn"
+        >Brooklyn</string>
     <string
         name="queens"
         >Queens</string>
     <string
-        name="bronx" translatable="false">Bronx</string>
+        name="bronx"
+        >The Bronx</string>
 </resources>
