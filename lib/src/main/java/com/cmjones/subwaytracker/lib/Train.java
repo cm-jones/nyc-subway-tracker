@@ -24,7 +24,7 @@ public class Train {
     /** The ID of this instance. */
     private int id;
 
-    /** The last assigned intance ID. */
+    /** The last assigned instance ID. */
     private static int lastID = 0;
 
     /**
