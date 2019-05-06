@@ -6,8 +6,8 @@ import android.graphics.drawable.Drawable;
  * Represents a train on the New York City subway system.
  */
 public class Train {
-    /** The line identifier, e.g. 1, A. */
-    private Line line;
+    /** The service identifier, e.g. 1, A. */
+    private Service service;
 
     /** The borough where this train is heading. */
     private String direction;
@@ -30,26 +30,26 @@ public class Train {
     /**
      * Creates a new train.
      *
-     * @param setLine the train's line
+     * @param setService the train's service
      * @param setDirection the train's direction
      * @param setDestination the train's destination
      */
-    public Train(final Line setLine, final String setDirection, final String setDestination,
-                  final boolean setIsExpress) {
+    public Train(final Service setService, final String setDirection, final String setDestination,
+                 final boolean setIsExpress) {
         id = ++lastID;
-        line = setLine;
+        service = setService;
         direction = setDirection;
         destination = setDestination;
         isExpress = setIsExpress;
     }
 
     /**
-     * Get this train's line.
+     * Get this train's service.
      *
-     * @return the line
+     * @return the service
      */
-    public Line getLine() {
-        return line;
+    public Service getService() {
+        return service;
     }
 
     /**
@@ -87,6 +87,6 @@ public class Train {
      */
     @Override
     public String toString() {
-        return direction + "-bound " + line + " train to " + destination;
+        return direction + "-bound " + service + " train to " + destination;
     }
 }

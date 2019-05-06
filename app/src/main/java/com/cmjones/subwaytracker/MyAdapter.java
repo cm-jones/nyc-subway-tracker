@@ -33,16 +33,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Train train = data.get(position);
-        Line line = train.getLine();
+        Service service = train.getService();
         holder.direction.setText(train.getDirection());
         holder.destination.setText(train.getDestination());
-        if (line.equals(Line.A)) {
+        if (service.equals(Service.A)) {
             holder.bullet.setImageResource(R.drawable.a_circle);
-        } else if (line.equals(Line.N)) {
+        } else if (service.equals(Service.N)) {
             holder.bullet.setImageResource(R.drawable.n_circle);
-        } else if (line.equals(Line.FIVE)) {
+        } else if (service.equals(Service.FIVE)) {
             holder.bullet.setImageResource(R.drawable.five_circle);
-        } else if (line.equals(Line.SEVEN)) {
+        } else if (service.equals(Service.SEVEN)) {
             holder.bullet.setImageResource(R.drawable.seven_circle);
         }
     }

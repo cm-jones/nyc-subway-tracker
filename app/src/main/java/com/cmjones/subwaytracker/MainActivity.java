@@ -98,18 +98,18 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         Log.d(TAG, response);
                         arrivals.clear();
-                        arrivals.add(new Train(Line.A, "Brooklyn-Bound", "To Far Rockaway", false));
-                        arrivals.add(new Train(Line.N, "Queens-Bound", "To Steinway St", true));
-                        arrivals.add(new Train(Line.SEVEN, "Queens-Bound", "To Flushing - Main " +
+                        arrivals.add(new Train(Service.A, "Brooklyn-Bound", "To Far Rockaway", false));
+                        arrivals.add(new Train(Service.N, "Queens-Bound", "To Steinway St", true));
+                        arrivals.add(new Train(Service.SEVEN, "Queens-Bound", "To Flushing - Main " +
                                 "St", false));
-                        arrivals.add(new Train(Line.A, "Manhattan-Bound", "To Inwood - 204 St",
+                        arrivals.add(new Train(Service.A, "Manhattan-Bound", "To Inwood - 204 St",
                                 true));
-                        arrivals.add(new Train(Line.FIVE, "Manhattan-Bound", "To City Hall",
+                        arrivals.add(new Train(Service.FIVE, "Manhattan-Bound", "To City Hall",
                                 false));
-                        arrivals.add(new Train(Line.SEVEN, "Queens-Bound", "To Flushing - Main " +
+                        arrivals.add(new Train(Service.SEVEN, "Queens-Bound", "To Flushing - Main " +
                                 "St", false));
-                        arrivals.add(new Train(Line.A, "Brooklyn-Bound", "To Far Rockaway", false));
-                        arrivals.add(new Train(Line.N, "Queens-Bound", "To Steinway St", true));
+                        arrivals.add(new Train(Service.A, "Brooklyn-Bound", "To Far Rockaway", false));
+                        arrivals.add(new Train(Service.N, "Queens-Bound", "To Steinway St", true));
                         currentStation.setText("Success!");
                         adapter.notifyDataSetChanged();
                     }
