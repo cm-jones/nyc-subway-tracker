@@ -6,14 +6,17 @@ import android.graphics.drawable.Drawable;
  * Represents a train on the New York City subway system.
  */
 public class Train {
-    /** The service identifier, e.g. 1, A. */
+    /** The service this train is running on. */
     private Service service;
+
+    /** This train's final station stop. */
+    private String destination;
+
+    /** This train's initial station stop. */
+    private String origin;
 
     /** The borough where this train is heading. */
     private String direction;
-
-    /** The final station stop. */
-    private String destination;
 
     /** Whether this train is running express. */
     private boolean isExpress;
@@ -21,10 +24,10 @@ public class Train {
     /** This train's official MTA emblem. */
     private Drawable bullet;
 
-    /** The ID of this instance. */
+    /** The identifier of this train. */
     private int id;
 
-    /** The last assigned instance ID. */
+    /** The last assigned instance identifier. */
     private static int lastID = 0;
 
     /**
@@ -88,5 +91,12 @@ public class Train {
     @Override
     public String toString() {
         return direction + "-bound " + service + " train to " + destination;
+    }
+
+    public boolean equals(Train other) {
+        if (other == null) {
+            return false;
+        }
+        return id == other.id;
     }
 }
