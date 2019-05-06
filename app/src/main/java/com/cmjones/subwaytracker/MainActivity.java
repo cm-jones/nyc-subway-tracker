@@ -117,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
+                arrivals.clear();
                 currentStation.setText("That didn't work!");
                 adapter.notifyDataSetChanged();
             }
