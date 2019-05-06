@@ -2,7 +2,6 @@ package com.cmjones.subwaytracker;
 
 import com.cmjones.subwaytracker.lib.*;
 
-import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
@@ -27,14 +26,10 @@ import java.util.List;
  * The application's main activity.
  */
 public class MainActivity extends AppCompatActivity {
-    /**
-     * Default logging tag for messages from the main activity.
-     */
+    /** Default logging tag for messages from the main activity. */
     private static final String TAG = "nyc-subway-tracker:main";
 
-    /**
-     * Request queue for network requests.
-     */
+    /** Request queue for network requests. */
     private RequestQueue requestQueue;
 
     private RecyclerView recyclerView;

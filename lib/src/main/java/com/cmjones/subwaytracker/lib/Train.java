@@ -21,6 +21,12 @@ public class Train {
     /** This train's official MTA emblem. */
     private Drawable bullet;
 
+    /** The ID of this instance. */
+    private int id;
+
+    /** The last assigned intance ID. */
+    private static int lastID = 0;
+
     /**
      * Creates a new train.
      *
@@ -30,6 +36,7 @@ public class Train {
      */
     public Train(final Line setLine, final String setDirection, final String setDestination,
                   final boolean setIsExpress) {
+        id = ++lastID;
         line = setLine;
         direction = setDirection;
         destination = setDestination;
