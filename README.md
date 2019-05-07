@@ -14,7 +14,7 @@ status.
 
 * The main repository is hosted on [GitLab](https://gitlab.com/cmjones/nyc-subway-tracker).
 
-* This project is mirrored on [GitHub](https://github.com/jones-cody/nyc-subway-tracker/).
+* It is also mirrored on [GitHub](https://github.com/jones-cody/nyc-subway-tracker/).
 
 ## Built With
 
