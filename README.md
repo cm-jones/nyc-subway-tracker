@@ -12,11 +12,10 @@ status.
 
 # Mirror
 
-The main repository is hosted on
-[GitLab](https://gitlab.com/) at
+The main repository is hosted on GitLab at
 [https://gitlab.com/cmjones/nyc-subway-tracker/](https://gitlab.com/cmjones/nyc-subway-tracker).
 
-The project is mirrored on [GitHub](https://github.com/) at
+The project is mirrored on GitHub at
 [https://github.com/jones-cody/nyc-subway-tracker](https://github.com/jones-cody/nyc-subway-tracker).
 
 ## Built With
@@ -25,9 +24,9 @@ The project is mirrored on [GitHub](https://github.com/) at
 
 ## Authors
 
-* **Cody M. Jones**, *Original Author and Maintainer*,
-  [cmjones](https://gitlab.com/cmjones/)
+* [Cody M. Jones](https://gitlab.com/cmjones), *Author and Maintainer*
 
-## License
+## License [![License: GPL
+v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 This project is licensed under the GPLv3. See the LICENSE file for details.
