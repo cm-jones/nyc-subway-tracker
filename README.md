@@ -22,11 +22,10 @@ The project is mirrored on GitHub at
 
 * [MTAPI](https://github.com/jonthornton/MTAPI/): Used to convert GTFS data to JSON
 
-## Authors
+## Contributors
 
 * [Cody M. Jones](https://gitlab.com/cmjones), *Author and Maintainer*
 
-## License [![License: GPL
-v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+## License [![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 This project is licensed under the GPLv3. See the LICENSE file for details.
