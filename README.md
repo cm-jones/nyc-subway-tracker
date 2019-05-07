@@ -26,4 +26,4 @@ status.
 
 ## License [![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-This project is licensed under the GPLv3. See LICENSE.md in the root directory.
+This project is licensed under the GPLv3. See [LICENSE.md](https://gitlab.com/cmjones/nyc-subway-tracker/blob/mater/LICENSE.md/) in the root directory.
