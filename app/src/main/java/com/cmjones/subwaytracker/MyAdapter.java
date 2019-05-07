@@ -13,13 +13,13 @@ import android.widget.TextView;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
-    private List<Train> data;
+    private List<Train> arrivals;
     private LayoutInflater layoutInflater;
     private ItemClickListener itemClickListener;
 
-    MyAdapter(Context context, List<Train> setData) {
+    MyAdapter(Context context, List<Train> setArrivals) {
         layoutInflater = LayoutInflater.from(context);
-        data = setData;
+        arrivals = setArrivals;
     }
 
     // inflates the row layout from xml when needed
@@ -33,7 +33,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Train train = data.get(position);
+        Train train = getTrain(position);
         Service service = train.getService();
         holder.direction.setText(train.getDirection());
         holder.destination.setText(train.getDestination());
@@ -55,7 +55,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
      */
     @Override
     public int getItemCount() {
-        return data.size();
+        return arrivals.size();
     }
 
 
@@ -83,9 +83,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         }
     }
 
-    // Convenience method for getting data at click position
-    Train getItem(int position) {
-        return data.get(position);
+    // Convenience method for getting train at click position
+    Train getTrain(int position) {
+        return arrivals.get(position);
     }
 
     // Allows clicks events to be caught

@@ -22,7 +22,7 @@ status.
 
 ## Contributors
 
-* [Cody M. Jones](https://gitlab.com/cmjones), *Author and Maintainer*
+* [Cody M. Jones](https://gitlab.com/cmjones), *author and maintainer*
 
 ## License [![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
