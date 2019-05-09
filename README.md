@@ -3,7 +3,7 @@
 This is a simple Android application that:
 
 * asks the user to select a station on the New York subway,
-* makes a request to an HTTP server (which I have set up), 
+* makes a request to an HTTP server (which I have yet to set up), 
 * which in turn requests [GTFS Realtime](https://developers.google.com/transit/gtfs-realtime/) data from the [Metropolitan Transit Authority](https://new.mta.info/),
 * and then diplays a formatted list of the next trains to arrive.
 
