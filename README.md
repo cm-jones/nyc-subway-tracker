@@ -1,4 +1,4 @@
-# ![NYC](lib/src/main/res/drawable/icon_small.png) Subway Tracker
+# NYC Subway Tracker
 
 This is a simple Android application that:
 
