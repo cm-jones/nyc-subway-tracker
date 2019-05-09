@@ -1,4 +1,4 @@
-# ![NYC](https://gitlab.com/cmjones/nyc-subway-tracker/tree/master/lib/src/main/res/drawable/icon.png) Subway Tracker
+# ![NYC](lib/src/main/res/drawable/icon_small.png) Subway Tracker
 
 This is a simple Android application that:
 
@@ -18,12 +18,12 @@ The main repository is hosted on [GitLab](https://gitlab.com/cmjones/nyc-subway-
 
 ## Built With
 
-* [MTAPI](https://github.com/jonthornton/MTAPI/): HTTP server used to convert GTFS Realtime data to JSON.
+* [MTAPI](https://github.com/jonthornton/MTAPI/) - HTTP server used to convert GTFS Realtime data to JSON.
 
 ## Contributors
 
-* [Cody M. Jones](https://gitlab.com/cmjones), *author and maintainer*
+* [Cody M. Jones](https://gitlab.com/cmjones), author
 
 ## License [![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-This project is licensed under the GNU General Public License v3.0. For details, see [LICENSE.md](https://gitlab.com/cmjones/nyc-subway-tracker/blob/master/LICENSE.md/) in the root directory.
+This project is licensed under the GNU General Public License v3.0. See [LICENSE.md](LICENSE.md) for details.
