@@ -1,4 +1,4 @@
-# NYC Subway Tracker
+# ![NYC](https://gitlab.com/cmjones/nyc-subway-tracker/tree/master/lib/src/main/res/drawable/icon.png) Subway Tracker
 
 This is a simple Android application that:
 
@@ -14,9 +14,7 @@ status.
 
 ## Mirror
 
-* The main repository is hosted on [GitLab](https://gitlab.com/cmjones/nyc-subway-tracker).
-
-* It is also mirrored on [GitHub](https://github.com/jones-cody/nyc-subway-tracker/).
+The main repository is hosted on [GitLab](https://gitlab.com/cmjones/nyc-subway-tracker), but there is also a mirror on [GitHub](https://github.com/jones-cody/nyc-subway-tracker/).
 
 ## Built With
 
