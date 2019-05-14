@@ -19,7 +19,7 @@ public class Train {
     private String direction;
 
     /** Whether this train is running express. */
-    private boolean isExpress;
+    private boolean express;
 
     /** This train's official MTA emblem. */
     private Drawable bullet;
@@ -38,12 +38,12 @@ public class Train {
      * @param setDestination the train's destination
      */
     public Train(final Service setService, final String setDirection, final String setDestination,
-                 final boolean setIsExpress) {
+                 final boolean setExpress) {
         id = ++lastID;
         service = setService;
         direction = setDirection;
         destination = setDestination;
-        isExpress = setIsExpress;
+        express = setExpress;
     }
 
     /**
@@ -53,6 +53,15 @@ public class Train {
      */
     public Service getService() {
         return service;
+    }
+
+    /**
+     * Set this train's service.
+     *
+     * @param setService the service to set
+     */
+    public void setService(Service setService) {
+        service = setService;
     }
 
     /**
@@ -66,6 +75,15 @@ public class Train {
     }
 
     /**
+     * Set this train's direction.
+     *
+     * @param setDirection the direction to set
+     */
+    public void setDirection(String setDirection) {
+        direction = setDirection;
+    }
+
+    /**
      * Get the train's final station stop.
      *
      * @return the destination
@@ -75,12 +93,30 @@ public class Train {
     }
 
     /**
+     * Set the train's final station stop.
+     *
+     * @param setDestination the final station stop to set
+     */
+    public void setDestination(String setDestination) {
+        destination = setDestination;
+    }
+
+    /**
      * Whether this train is running express.
      *
      * @return true if running express, false if running local
      */
-    public boolean isExpress() {
-        return isExpress;
+    public boolean getExpress() {
+        return express;
+    }
+
+    /**
+     * Set this train's express-local state.
+     *
+     * @param setExpress the express-local state to set
+     */
+    public void setExpress(boolean setExpress) {
+        express = setExpress;
     }
 
     /**
@@ -93,6 +129,10 @@ public class Train {
         return direction + "-bound " + service + " train to " + destination;
     }
 
+    /**
+     * @param other the other train to compare this one to
+     * @return true if the trains are equal, false otherwise
+     */
     public boolean equals(Train other) {
         if (other == null) {
             return false;

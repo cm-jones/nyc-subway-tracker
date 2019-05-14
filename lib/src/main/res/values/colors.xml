@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="IND_EIGHTH_AVE">#0039A6</color>
-    <color name="IND_SIXTH_AVE">#FF6319</color>
-    <color name="IND_CROSSTOWN">#6CBE45</color>
-    <color name="BMT_NASSAU">#996633</color>
-    <color name="BMT_BROADWAY">#FCCC0A</color>
-    <color name="SHUTTLES">#808183</color>
-    <color name="IRT_BROADWAY_SEVENTH_AVE">#EE352E</color>
-    <color name="IRT_LEXINGTON_AVE">#00933C</color>
-    <color name="IRT_FLUSHING">#B933AD</color>
-    <color name="BMT_CANARSIE">#A7A9AC</color>
+    <color name="indEighthAve">#0039A6</color>
+    <color name="indSixthAve">#FF6319</color>
+    <color name="indCrosstown">#6CBE45</color>
+    <color name="bmtNassau">#996633</color>
+    <color name="bmtBroadway">#FCCC0A</color>
+    <color name="shuttles">#808183</color>
+    <color name="irtBroadwaySeventhAve">#EE352E</color>
+    <color name="irtLexingtonAve">#00933C</color>
+    <color name="irtFlushing">#B933AD</color>
+    <color name="bmtCanarsie">#A7A9AC</color>
 </resources>

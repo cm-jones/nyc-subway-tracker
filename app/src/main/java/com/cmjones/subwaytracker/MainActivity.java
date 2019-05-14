@@ -7,8 +7,11 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -19,8 +22,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import java.util.LinkedList;
 import java.util.List;
+import java.util.LinkedList;
 
 /**
  * The application's main activity.
@@ -29,15 +32,12 @@ public class MainActivity extends AppCompatActivity {
     /** Default logging tag for messages from the main activity. */
     private static final String TAG = "nyc-subway-tracker:main";
 
-    /** Request queue for network requests. */
-    private RequestQueue requestQueue;
-
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private LinearLayoutManager layoutManager;
 
-    private Button makeRequest;
-    private TextView currentStation;
+    /** Request queue for network requests. */
+    private RequestQueue requestQueue;
 
     /** Arriving trains to populate the RecyclerView with. */
     List<Train> arrivals = new LinkedList<>();
@@ -49,29 +49,15 @@ public class MainActivity extends AppCompatActivity {
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        requestQueue = Volley.newRequestQueue(this);
-
         super.onCreate(savedInstanceState);
-
-        // Load the main layout
         setContentView(R.layout.activity_main);
 
-        /*
-         * Set up button handlers.
-         */
-        makeRequest = findViewById(R.id.makeRequest);
-        makeRequest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(TAG, "Make request button clicked");
-                makeRequest();
-            }
-        });
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setLogo(R.drawable.ic_n_circle);
+        toolbar.setTitle(R.string.app_name);
 
-        currentStation = findViewById(R.id.currentStation);
         recyclerView = findViewById(R.id.trains);
-
-        // Layout size does not change with content changes
         recyclerView.setHasFixedSize(true);
 
         // Use linear layout manager
@@ -81,23 +67,51 @@ public class MainActivity extends AppCompatActivity {
         adapter = new MyAdapter(this, arrivals);
         recyclerView.setAdapter(adapter);
 
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
+        DividerItemDecoration decoration = new DividerItemDecoration(recyclerView.getContext(),
                 layoutManager.getOrientation());
-        recyclerView.addItemDecoration(dividerItemDecoration);
+        recyclerView.addItemDecoration(decoration);
 
-        // set up the RecyclerView
-        // adapter.setClickListener(this);
+        requestQueue = Volley.newRequestQueue(this);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_refresh:
+                Log.d(TAG, "Refresh pressed");
+                makeRequest();
+                break;
+            case R.id.action_settings:
+                Log.d(TAG, "Settings pressed");
+                break;
+        }
+        return true;
     }
 
     public void makeRequest() {
         String url = "http://datamine.mta.info/mta_esi.php?key=" + BuildConfig.API_KEY + "&feed_id=1";
-        // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         Log.d(TAG, response);
                         arrivals.clear();
+                        /*
+                        List<String> arrivalTimes = TrainInfo.getArrivalTimes(response);
+                        List<String> destinations = TrainInfo.getDestinations(response);
+                        for (int i = 0; i < arrivalTimes.size(); i++) {
+                            arrivals.add(new Train(Service.A, destinations.get(i),
+                                    destinations.get(i), false));
+                        }
+                        */
+                        arrivals = TrainInfo.getArrivals(response);
                         arrivals.add(new Train(Service.A, "Brooklyn-Bound", "To Far Rockaway", false));
                         arrivals.add(new Train(Service.N, "Queens-Bound", "To Steinway St", true));
                         arrivals.add(new Train(Service.SEVEN, "Queens-Bound", "To Flushing - Main " +
@@ -110,7 +124,6 @@ public class MainActivity extends AppCompatActivity {
                                 "St", false));
                         arrivals.add(new Train(Service.A, "Brooklyn-Bound", "To Far Rockaway", false));
                         arrivals.add(new Train(Service.N, "Queens-Bound", "To Steinway St", true));
-                        currentStation.setText("Success!");
                         adapter.notifyDataSetChanged();
                     }
                 }, new Response.ErrorListener() {
@@ -118,7 +131,6 @@ public class MainActivity extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
                 arrivals.clear();
-                currentStation.setText("That didn't work!");
                 adapter.notifyDataSetChanged();
             }
         });
