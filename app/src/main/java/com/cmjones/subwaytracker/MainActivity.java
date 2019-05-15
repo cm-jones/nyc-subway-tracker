@@ -85,11 +85,11 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_refresh:
-                Log.d(TAG, "Refresh pressed");
+                Log.d(TAG, "Refresh button pressed!");
                 makeRequest();
                 break;
             case R.id.action_settings:
-                Log.d(TAG, "Settings pressed");
+                Log.d(TAG, "Settings button pressed!");
                 break;
         }
         return true;
@@ -111,7 +111,6 @@ public class MainActivity extends AppCompatActivity {
                                     destinations.get(i), false));
                         }
                         */
-                        arrivals = TrainInfo.getArrivals(response);
                         arrivals.add(new Train(Service.A, "Brooklyn-Bound", "To Far Rockaway", false));
                         arrivals.add(new Train(Service.N, "Queens-Bound", "To Steinway St", true));
                         arrivals.add(new Train(Service.SEVEN, "Queens-Bound", "To Flushing - Main " +

@@ -6,32 +6,32 @@ import android.graphics.drawable.Drawable;
  * Represents a train on the New York City subway system.
  */
 public class Train {
-    /** The service this train is running on. */
+    /** The service this train is running on */
     private Service service;
 
-    /** This train's final station stop. */
+    /** This train's final station stop */
     private String destination;
 
-    /** This train's initial station stop. */
+    /** This train's initial station stop */
     private String origin;
 
-    /** The borough where this train is heading. */
+    /** The borough where this train is heading */
     private String direction;
 
-    /** Whether this train is running express. */
+    /** Whether this train is running express */
     private boolean express;
 
-    /** This train's official MTA emblem. */
+    /** This train's official MTA emblem */
     private Drawable bullet;
 
-    /** The identifier of this train. */
+    /** The identifier of this train */
     private int id;
 
-    /** The last assigned instance identifier. */
+    /** The last assigned instance identifier */
     private static int lastID = 0;
 
     /**
-     * Creates a new train.
+     * Creates a new Train
      *
      * @param setService the train's service
      * @param setDirection the train's direction

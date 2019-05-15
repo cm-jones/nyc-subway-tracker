@@ -41,8 +41,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             holder.bullet.setImageResource(R.drawable.ic_a_circle);
         } else if (service.equals(Service.N)) {
             holder.bullet.setImageResource(R.drawable.ic_n_circle);
+        } else if (service.equals(Service.FOUR)) {
+            holder.bullet.setImageResource(R.drawable.ic_4_circle);
         } else if (service.equals(Service.FIVE)) {
             holder.bullet.setImageResource(R.drawable.ic_5_circle);
+        } else if (service.equals(Service.SIX)) {
+            holder.bullet.setImageResource(R.drawable.ic_6_circle);
         } else if (service.equals(Service.SEVEN)) {
             holder.bullet.setImageResource(R.drawable.ic_7_circle);
         }
