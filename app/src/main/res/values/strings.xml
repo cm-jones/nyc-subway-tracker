@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">NYC Subway Tracker</string>
-    <string name="uptown">Uptown</string>
-    <string name="downtown">Downtown</string>
+    <string name="app_name">Subway Tracker</string>
+    <string name="bullet">Service Indicator</string>
     <string name="inwood">To Inwood - 204th St</string>
     <string name="rockaway">To Far Rockaway</string>
     <string name="flushing">To Flushing - Main St</string>
     <string name="coney">To Coney Island - Stillwell</string>
+    <string name="minutes">mins</string>
 </resources>

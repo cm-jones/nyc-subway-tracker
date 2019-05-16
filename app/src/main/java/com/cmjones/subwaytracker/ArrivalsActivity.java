@@ -12,8 +12,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -28,15 +26,15 @@ import java.util.LinkedList;
 /**
  * The application's main activity.
  */
-public class MainActivity extends AppCompatActivity {
-    /** Default logging tag for messages from the main activity. */
-    private static final String TAG = "nyc-subway-tracker:main";
+public class ArrivalsActivity extends AppCompatActivity {
+    /** Default logging tag for messages from this activity */
+    private static final String TAG = "ArrivalsActivity";
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private LinearLayoutManager layoutManager;
 
-    /** Request queue for network requests. */
+    /** Request queue for network requests */
     private RequestQueue requestQueue;
 
     /** Arriving trains to populate the RecyclerView with. */
@@ -50,28 +48,28 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_arrivals);
+
+        requestQueue = Volley.newRequestQueue(this);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setLogo(R.drawable.ic_n_circle);
         toolbar.setTitle(R.string.app_name);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        toolbar.setBackgroundColor(getResources().getColor(R.color.ind_eighth_ave));
 
         recyclerView = findViewById(R.id.trains);
         recyclerView.setHasFixedSize(true);
 
-        // Use linear layout manager
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new MyAdapter(this, arrivals);
+        adapter = new ArrivalsListAdapter(this, arrivals);
         recyclerView.setAdapter(adapter);
 
         DividerItemDecoration decoration = new DividerItemDecoration(recyclerView.getContext(),
                 layoutManager.getOrientation());
         recyclerView.addItemDecoration(decoration);
-
-        requestQueue = Volley.newRequestQueue(this);
     }
 
     @Override
@@ -86,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_refresh:
                 Log.d(TAG, "Refresh button pressed!");
-                makeRequest();
+                makeRequest(1);
                 break;
             case R.id.action_settings:
                 Log.d(TAG, "Settings button pressed!");
@@ -95,22 +93,18 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public void makeRequest() {
-        String url = "http://datamine.mta.info/mta_esi.php?key=" + BuildConfig.API_KEY + "&feed_id=1";
+    /**
+     * Initiate an API request to retrieve GTFS Realtime data
+     */
+    private void makeRequest(final int feedID) {
+        String url = "http://datamine.mta.info/mta_esi.php?key=" + BuildConfig.API_KEY +
+                "&feed_id=" + feedID;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         Log.d(TAG, response);
                         arrivals.clear();
-                        /*
-                        List<String> arrivalTimes = TrainInfo.getArrivalTimes(response);
-                        List<String> destinations = TrainInfo.getDestinations(response);
-                        for (int i = 0; i < arrivalTimes.size(); i++) {
-                            arrivals.add(new Train(Service.A, destinations.get(i),
-                                    destinations.get(i), false));
-                        }
-                        */
                         arrivals.add(new Train(Service.A, "Brooklyn-Bound", "To Far Rockaway", false));
                         arrivals.add(new Train(Service.N, "Queens-Bound", "To Steinway St", true));
                         arrivals.add(new Train(Service.SEVEN, "Queens-Bound", "To Flushing - Main " +

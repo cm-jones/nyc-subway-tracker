@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Staten Island omitted as it does not connect to the main system -->
 <resources>
     <string
         name="manhattan"
-        >Manhattan</string>
+        >Manhattan-bound</string>
     <string
         name="brooklyn"
-        >Brooklyn</string>
+        >Brooklyn-bound</string>
     <string
         name="queens"
-        >Queens</string>
+        >Queens-bound</string>
     <string
         name="bronx"
-        >The Bronx</string>
+        >Bronx-bound</string>
 </resources>
