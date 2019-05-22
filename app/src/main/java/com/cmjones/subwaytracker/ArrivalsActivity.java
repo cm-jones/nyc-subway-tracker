@@ -38,38 +38,43 @@ public class ArrivalsActivity extends AppCompatActivity {
     private RequestQueue requestQueue;
 
     /** Arriving trains to populate the RecyclerView with. */
-    List<Train> arrivals = new LinkedList<>();
+    private List<Train> arrivals = new LinkedList<>();
 
     /**
-     * Executes when the main activity loads.
+     * Executes when this activity loads
      *
      * @param savedInstanceState state saved on the last pause
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        /* Get this activity's layout */
         setContentView(R.layout.activity_arrivals);
 
+        /* Create a new request queue to handle API requests */
         requestQueue = Volley.newRequestQueue(this);
 
+        /* Set up this activity's toolbar */
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(R.string.app_name);
-        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
-        toolbar.setBackgroundColor(getResources().getColor(R.color.ind_eighth_ave));
+        toolbar.setBackgroundColor(getResources().getColor(R.color.bmt_canarsie));
 
+        /* Set up a RecyclerView to list the train arrivals */
         recyclerView = findViewById(R.id.trains);
         recyclerView.setHasFixedSize(true);
-
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new ArrivalsListAdapter(this, arrivals);
-        recyclerView.setAdapter(adapter);
-
+        /* Draw a line separator between the trains in the RecyclerView */
         DividerItemDecoration decoration = new DividerItemDecoration(recyclerView.getContext(),
                 layoutManager.getOrientation());
         recyclerView.addItemDecoration(decoration);
+
+        /* Create an adapter to handle the data inside the RecyclerView */
+        adapter = new ArrivalsListAdapter(this, arrivals);
+        recyclerView.setAdapter(adapter);
     }
 
     @Override
@@ -84,6 +89,7 @@ public class ArrivalsActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_refresh:
                 Log.d(TAG, "Refresh button pressed!");
+                /* Make a request to the MTA API */
                 makeRequest(1);
                 break;
             case R.id.action_settings:
@@ -94,7 +100,10 @@ public class ArrivalsActivity extends AppCompatActivity {
     }
 
     /**
-     * Initiate an API request to retrieve GTFS Realtime data
+     * Make an API request to retrieve GTFS Realtime data
+     * TODO: Convert the GTFS data to JSON; organize the feed IDs
+     *
+     * @param feedID the ID that identifies the set of trains we are interested in
      */
     private void makeRequest(final int feedID) {
         String url = "http://datamine.mta.info/mta_esi.php?key=" + BuildConfig.API_KEY +
@@ -104,7 +113,11 @@ public class ArrivalsActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         Log.d(TAG, response);
+
+                        /* Purge the arrivals list to prepare it to receive new information*/
                         arrivals.clear();
+                        
+                        /* TODO: Populate the arrivals list with the API response */
                         arrivals.add(new Train(Service.A, "Brooklyn-Bound", "To Far Rockaway", false));
                         arrivals.add(new Train(Service.N, "Queens-Bound", "To Steinway St", true));
                         arrivals.add(new Train(Service.SEVEN, "Queens-Bound", "To Flushing - Main " +
@@ -117,6 +130,8 @@ public class ArrivalsActivity extends AppCompatActivity {
                                 "St", false));
                         arrivals.add(new Train(Service.A, "Brooklyn-Bound", "To Far Rockaway", false));
                         arrivals.add(new Train(Service.N, "Queens-Bound", "To Steinway St", true));
+
+                        /* Ask the adapter to update the information in the RecyclerView */
                         adapter.notifyDataSetChanged();
                     }
                 }, new Response.ErrorListener() {
@@ -127,6 +142,7 @@ public class ArrivalsActivity extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
             }
         });
+        /* Add this string request to the request queue; request will not be made otherwise. */
         requestQueue.add(stringRequest);
     }
 }
