@@ -3,9 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/action_menu"
+        android:icon="@drawable/ic_baseline_menu_24px"
+        android:title="Menu"
+        android:layout_gravity="start"
+        app:showAsAction="ifRoom"/>
+
+    <item
         android:id="@+id/action_refresh"
         android:icon="@drawable/ic_baseline_refresh_24px"
-        android:title=""
+        android:title="Refresh"
         app:showAsAction="ifRoom"/>
 
     <item android:id="@+id/action_settings"

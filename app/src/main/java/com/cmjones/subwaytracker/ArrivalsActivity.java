@@ -58,11 +58,10 @@ public class ArrivalsActivity extends AppCompatActivity {
         /* Set up this activity's toolbar */
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setTitle(R.string.app_name);
-        toolbar.setBackgroundColor(getResources().getColor(R.color.bmt_canarsie));
+        toolbar.setTitle("Arrivals");
 
         /* Set up a RecyclerView to list the train arrivals */
-        recyclerView = findViewById(R.id.trains);
+        recyclerView = findViewById(R.id.arrivals);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -88,12 +87,15 @@ public class ArrivalsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_refresh:
-                Log.d(TAG, "Refresh button pressed!");
+                Log.d(TAG, "Refresh button pressed");
                 /* Make a request to the MTA API */
                 makeRequest(1);
                 break;
+            case R.id.action_menu:
+                Log.d(TAG, "Menu button pressed");
+                break;
             case R.id.action_settings:
-                Log.d(TAG, "Settings button pressed!");
+                Log.d(TAG, "Settings button pressed");
                 break;
         }
         return true;
@@ -118,18 +120,22 @@ public class ArrivalsActivity extends AppCompatActivity {
                         arrivals.clear();
                         
                         /* TODO: Populate the arrivals list with the API response */
-                        arrivals.add(new Train(Service.A, "Brooklyn-Bound", "To Far Rockaway", false));
-                        arrivals.add(new Train(Service.N, "Queens-Bound", "To Steinway St", true));
-                        arrivals.add(new Train(Service.SEVEN, "Queens-Bound", "To Flushing - Main " +
-                                "St", false));
-                        arrivals.add(new Train(Service.A, "Manhattan-Bound", "To Inwood - 204 St",
-                                true));
-                        arrivals.add(new Train(Service.FIVE, "Manhattan-Bound", "To City Hall",
+                        arrivals.add(new Train(Service.A, "Brooklyn-bound", "to Far Rockaway",
                                 false));
-                        arrivals.add(new Train(Service.SEVEN, "Queens-Bound", "To Flushing - Main " +
+                        arrivals.add(new Train(Service.N, "Queens-bound", "to Steinway St", true));
+                        arrivals.add(new Train(Service.SEVEN, "Queens-bound", "to Flushing - Main" +
+                                " " +
                                 "St", false));
-                        arrivals.add(new Train(Service.A, "Brooklyn-Bound", "To Far Rockaway", false));
-                        arrivals.add(new Train(Service.N, "Queens-Bound", "To Steinway St", true));
+                        arrivals.add(new Train(Service.A, "Manhattan-bound", "to Inwood - 204 St",
+                                true));
+                        arrivals.add(new Train(Service.FIVE, "Manhattan-bound", "to City Hall",
+                                false));
+                        arrivals.add(new Train(Service.SEVEN, "Queens-bound", "to Flushing - Main" +
+                                " " +
+                                "St", false));
+                        arrivals.add(new Train(Service.A, "Brooklyn-bound", "to Far Rockaway",
+                                false));
+                        arrivals.add(new Train(Service.N, "Queens-bound", "to Steinway St", true));
 
                         /* Ask the adapter to update the information in the RecyclerView */
                         adapter.notifyDataSetChanged();

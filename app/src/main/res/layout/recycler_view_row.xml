@@ -1,52 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:padding="0sp"
-    android:layout_height="60sp"
-    android:orientation="horizontal">
+    android:layout_height="72dp"
+    android:orientation="horizontal"
+    android:padding="0sp">
 
     <ImageView
         android:id="@+id/bullet"
-        android:layout_gravity="center"
         android:contentDescription="@string/bullet"
         android:layout_width="40sp"
-        android:layout_height="40sp"/>
+        android:layout_height="40sp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_gravity="center" />
 
     <LinearLayout
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_gravity="center"
-        android:orientation="vertical"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/direction"
-            android:textSize="16sp"
-            android:textStyle="bold"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/destination"
-            android:textSize="14sp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:textSize="12sp" />
     </LinearLayout>
 
     <View
         android:layout_width="0sp"
         android:layout_height="0sp"
         android:layout_gravity="center"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
 
     <LinearLayout
-        android:layout_width="40sp"
-        android:orientation="vertical"
+        android:layout_width="40dp"
+        android:layout_height="40sp"
         android:layout_gravity="center"
-        android:layout_marginEnd="0sp"
-        android:layout_marginRight="0sp"
-        android:layout_height="40sp">
+        android:layout_marginEnd="8sp"
+        android:layout_marginRight="8sp"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/arrival_time"
@@ -56,13 +60,14 @@
             android:gravity="bottom"
             android:text="6"
             android:textSize="16sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="20sp"
             android:layout_gravity="center"
             android:gravity="center"
             android:text="@string/minutes"
-            android:textSize="14sp"/>
+            android:textSize="12sp" />
     </LinearLayout>
 </LinearLayout>

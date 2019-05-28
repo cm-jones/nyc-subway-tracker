@@ -2,6 +2,7 @@
   <dictionary name="cody">
     <words>
       <w>canarsie</w>
+      <w>cmjones</w>
       <w>coney</w>
       <w>gtfs</w>
       <w>inwood</w>
@@ -9,6 +10,7 @@
       <w>pelham</w>
       <w>rockaway</w>
       <w>stillwell</w>
+      <w>subwaytracker</w>
     </words>
   </dictionary>
 </component>
