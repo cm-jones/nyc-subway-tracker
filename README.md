@@ -18,11 +18,11 @@ The main repository is hosted on [GitLab](https://gitlab.com/cmjones/nyc-subway-
 
 ## Built With
 
-* [MTAPI](https://github.com/jonthornton/MTAPI/) - HTTP server used to convert [GTFS Realtime](https://developers.google.com/transit/gtfs-realtime/) data to JSON
+* [MTAPI](https://github.com/jonthornton/MTAPI/) &ndash; HTTP server used to convert [GTFS Realtime](https://developers.google.com/transit/gtfs-realtime/) data to JSON
 
 ## Contributors
 
-* [Cody M. Jones](https://gitlab.com/cmjones) - author
+* [Cody M. Jones](https://gitlab.com/cmjones) &ndash; author
 
 ## License [![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
